@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AngularFireModule} from '@angular/fire' ;
-
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
         messagingSenderId: "524863907522",
         appId: "1:524863907522:web:b8e2c2cc5333bf1af67d5b",
         measurementId: "G-LFF0DYKE9V"
-  })
+  }),
+  AngularFirestoreModule,
+  AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

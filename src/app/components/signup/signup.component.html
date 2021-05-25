@@ -22,8 +22,9 @@
 
     
             <button class="btn btn-primary" [disabled]="f.invalid || password.value !== confirmPasswprd.value">create Account</button>
-    
-    
         </form>
+        <br>
+        <div class="alert alert-danger" *ngIf="errMessage">{{errMessage}}</div>
+
     </div>
 </div>
