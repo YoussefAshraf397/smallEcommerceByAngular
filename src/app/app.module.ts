@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {AngularFireModule} from '@angular/fire' ;
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -27,7 +30,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule ,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(
+      {
+        apiKey: "AIzaSyD4V3wQSo2qnM7tqw0ENYCt5NA0HB1FoKE",
+        authDomain: "small-market-e687c.firebaseapp.com",
+        projectId: "small-market-e687c",
+        storageBucket: "small-market-e687c.appspot.com",
+        messagingSenderId: "524863907522",
+        appId: "1:524863907522:web:b8e2c2cc5333bf1af67d5b",
+        measurementId: "G-LFF0DYKE9V"
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
