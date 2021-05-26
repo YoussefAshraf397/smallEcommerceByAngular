@@ -11,20 +11,20 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="isUser">
               <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="!isUser">
                 <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"*ngIf="!isUser">
                 <a class="nav-link" routerLink="/signup" routerLinkActive="active">SignUp</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="isUser">
                 <a class="nav-link" routerLink="/admin" routerLinkActive="active">Dashboard</a>
               </li>
-              <li class="nav-item">
-                <a class="btn btn-danger" routerLink="/logout" routerLinkActive="active">Logout</a>
+              <li class="nav-item" *ngIf="isUser">
+                <a class="btn btn-danger" (click)="logOut()"  routerLinkActive="active">Logout</a>
               </li>
           </ul>
         </div>
