@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Good } from 'src/app/interfaces/goodInterface';
 import { GoodsService } from 'src/app/services/goods.service';
+import { CartService } from 'src/app/services/cart.service';
+
 
 @Component({
   selector: 'app-home',
@@ -20,8 +22,9 @@ export class HomeComponent implements OnInit , OnDestroy {
 
   goods: Good[];
   goodsObservable: Subscription;
+  add: number = -1 ;
 
-  constructor(private gs: GoodsService) { }
+  constructor(private gs: GoodsService , private cs: CartService) { }
 
   ngOnInit(): void {
     this.goodsObservable = this.gs.getAllGoods().subscribe(data => {
@@ -39,8 +42,22 @@ export class HomeComponent implements OnInit , OnDestroy {
 
   }
 
-  addToCart(id){
-    console.log("added" , id) ;
+  addToCart(index)
+  {
+    this.add = +index ;
+
+  }
+
+  buy(amount: number)
+  {
+    let selectedGood = this.goods[this.add];
+    let data = {
+      name: selectedGood.name ,
+      amount: +amount ,
+      price: selectedGood.price
+    }
+
+    this.cs.addToCart(data).then(()=>this.add = -1);
 
   }
 

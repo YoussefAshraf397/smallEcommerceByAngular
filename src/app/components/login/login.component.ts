@@ -26,4 +26,4 @@ export class LoginComponent implements OnInit {
       this.errMessage = err.message
     } );  }
 
-}
+} 

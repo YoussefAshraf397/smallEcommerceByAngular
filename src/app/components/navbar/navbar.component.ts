@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
       else
       {
         this.isUser = false ;
-        this.as.userId ='' ;
+        this.as.userId ='`' ;
 
       }
     })
